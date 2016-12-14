@@ -20,19 +20,40 @@ Some code and wiring inspired by http://en.wikiversity.org/wiki/User:Dstaub/robo
 */
 #define trigPin D6 // Trig pin on the HC-SR04
 #define echoPin D5 // Echo pin on the HC-SR04
-#define led 11
-#define led2 10
+
+boolean state = true;
+unsigned long time1,time2, distance;
 
 void setup() {
-  Serial.begin (9600);
+  //Serial.begin (9600);
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
-  pinMode(led, OUTPUT);
-  pinMode(led2, OUTPUT);
+
+//  attachInterrupt(echoPin, isr, CHANGE); //CHANGE, RISING or FALLING  
 }
 
 void loop() {
-  long duration, distance;
+
+  /*if(state) {
+     digitalWrite(trigPin, LOW);
+     state = false;
+  } else {
+    digitalWrite(trigPin, HIGH);
+    state = true;
+  }*/
+
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(500);
+  digitalWrite(trigPin, LOW);
+  //Serial.println(state);
+  //delayMicroseconds(4500);
+  //time1 = micros(); //start or reset timer on every rising edge
+  distance = pulseIn(echoPin,HIGH);
+  Serial.println(distance);
+  delay(500);
+  
+  //duration = pulseIn(echoPin, HIGH);
+  /*long duration, distance;
   digitalWrite(trigPin, LOW);  // Added this line
   delayMicroseconds(2); // Added this line
   digitalWrite(trigPin, HIGH);
@@ -51,8 +72,23 @@ void loop() {
   }
   Serial.print(distance);
   Serial.println(" cm");
-  delay(500);
+  delay(500);*/
+  
 }
+
+/*void isr()
+{ 
+  if(digitalRead(echoPin)==HIGH){
+    time1 = micros(); //start or reset timer on every rising edge
+    distance = time2;
+  } else {
+   time2 = micros(); //stop on falling edge
+   distance = time2;
+  } 
+  //interrupts();
+ 
+}
+*/
 
 
 
