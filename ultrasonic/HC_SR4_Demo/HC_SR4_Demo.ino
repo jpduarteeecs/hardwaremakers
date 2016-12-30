@@ -21,27 +21,15 @@ Some code and wiring inspired by http://en.wikiversity.org/wiki/User:Dstaub/robo
 #define trigPin D6 // Trig pin on the HC-SR04
 #define echoPin D5 // Echo pin on the HC-SR04
 
-boolean state = true;
-unsigned long time1,time2, distance;
+unsigned long distance;
 
 void setup() {
-  //Serial.begin (9600);
+  Serial.begin (9600);
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
-
-//  attachInterrupt(echoPin, isr, CHANGE); //CHANGE, RISING or FALLING  
 }
 
 void loop() {
-
-  /*if(state) {
-     digitalWrite(trigPin, LOW);
-     state = false;
-  } else {
-    digitalWrite(trigPin, HIGH);
-    state = true;
-  }*/
-
   digitalWrite(trigPin, HIGH);
   delayMicroseconds(500);
   digitalWrite(trigPin, LOW);
@@ -50,45 +38,10 @@ void loop() {
   //time1 = micros(); //start or reset timer on every rising edge
   distance = pulseIn(echoPin,HIGH);
   Serial.println(distance);
-  delay(500);
-  
-  //duration = pulseIn(echoPin, HIGH);
-  /*long duration, distance;
-  digitalWrite(trigPin, LOW);  // Added this line
-  delayMicroseconds(2); // Added this line
-  digitalWrite(trigPin, HIGH);
-//  delayMicroseconds(1000); - Removed this line
-  delayMicroseconds(10); // Added this line
-  digitalWrite(trigPin, LOW);
-  duration = pulseIn(echoPin, HIGH);
-  distance = (duration/2) / 29.1;
-  if (distance < 4) {  // This is where the LED On/Off happens
-    digitalWrite(led,HIGH); // When the Red condition is met, the Green LED should turn off
-  digitalWrite(led2,LOW);
-}
-  else {
-    digitalWrite(led,LOW);
-    digitalWrite(led2,HIGH);
-  }
-  Serial.print(distance);
-  Serial.println(" cm");
-  delay(500);*/
-  
+  delay(100);
+  //duration = pulseIn(echoPin, HIGH);  
 }
 
-/*void isr()
-{ 
-  if(digitalRead(echoPin)==HIGH){
-    time1 = micros(); //start or reset timer on every rising edge
-    distance = time2;
-  } else {
-   time2 = micros(); //stop on falling edge
-   distance = time2;
-  } 
-  //interrupts();
- 
-}
-*/
 
 
 
