@@ -1,0 +1,28 @@
+Nusantara-Arumba
+Compiled by Eko M. Budi from the following sources
+
+- Angklung            : malaysiahq.sf2
+- Angklung (centok)   : malaysiahq.sf2
+- Seruling            : malaysiahq.sf2 
+- Carumba             : bamboomarimba.sf2
+- Lodong              : trylogy.sf2
+- Bass Betot          : FluidR3_GM.sf2
+- Biola               : FluidR3_GM.sf2
+- Kecapi              : FluidR3_GM.sf2
+- Perkusi             : kendang_kit.sf2 + FluidR3_GM.sf2 
+
+Copyrights:
+malaysiahq.sf2 by user davestew04, downloaded from 
+www.sf2midi.com
+
+bamboomarimba.sf2 by user liondogy, downloaded from 
+www.sf2midi.com
+
+Campbells_Wooden_Xylophone.sf2 by user davestew04, downloaded from 
+www.sf2midi.com
+
+trylogy.sf2, by user sf2midi, downloaded from 
+www.sf2midi.com
+
+
+
