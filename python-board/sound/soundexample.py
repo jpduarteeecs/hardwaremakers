@@ -1,6 +1,7 @@
 #https://github.com/jiaaro/pydub
 from pydub import AudioSegment
 from pydub.playback import play
+from time import sleep
 
 path = "/home/juan/research/hardwaremakers/python-board/sound/"
 #fname = "/home/juan/Downloads/Angklung.mp3"
@@ -24,24 +25,22 @@ doh = AudioSegment.from_mp3(fname)
 #play(do+re+mi+mi+mi+fa)
 #print(do.duration_seconds)
 #play(dol+re+mi+fa+so+la+si+doh)
-
-play(si+mi+so+la+so+mi+si+la+so+la+si)#+I+took+my+baby+on+a+Saturday+bang+
-play(si+si+mi+so+la+so+mi+si+la+so+la+si)#+Boy+is+that+girl+with+you?+Yes,+we’re+one+and+the+same+
-play(si+si+do+do+mi+mi+fa+mi+mi)#+Now+I+believe+in+miracles+
-play(mi+mi+do+do+mi+mi+fa+mi+fa+so)#+And+a+miracle+has+happened+tonight+
-play(si+fa+fa+fa+fa+so+fa+mi)#+But,+if+you’re+thinkingabout+my+baby+
-play(mi+mi+do+mi+mi+do+fa+mi+mi)#+It+don’t+matter+if+you’re+black+or+white+
-play(si+mi+so+la+so+mi+si+la+so+la+si)#+They+print+my+message+in+the+Saturday+Sun+
-play(si+si+mi+so+la+so+mi+si+la+so+la+si)#+I+had+to+tell+them+i+ain’t+second+to+none+
-play(si+si+do+do+mi+mi+fa+mi+mi)#+And+I+told+about+equality+
-'''mi+mi+do+do+mi+mi+fa+mi+fa+so)#+An+it’s+true,+either+you’re+wrong+or+you’re+right+
-si+fa+fa+fa+fa+so+fa+mi)#+But,+if+you’re+thinkingabout+my+baby+
-mi+mi+do+mi+mi+do+fa+mi+mi)#+It+don’t+matter+if+you’re+black+or+white+
-do+do+mi+mi+fa+mi+mi)#+Don’t+tell+me+you+agree+with+me+
-mi+mi+do+do+mi+mi+fa+mi+fa+so)#+When+I+saw+you+kicking+dirt+in+my+ey+
-si+fa+fa+fa+fa+so+fa+mi)#+But,+if+you’re+thinkingabout+my+baby+
-mi+mi+do+mi+mi+do+fa+mi+mi)#+It+don’t+matter+if+you’re+black+or+white+
-si+fa+fa+fa+fa+so+fa+mi)#+But,+if+you’re+thinkingabout+my+baby+
-mi+mi+do+mi+mi+do+fa+mi+mi)#+It+don’t+matter+if+you’re+black+or+white+
-si+fa+fa+fa+fa+so+fa+mi)#+But,+if+you’re+thinkingabout+my+baby+
-mi+mi+do+mi+mi+do+fa+mi+mi)#+It+don’t+matter+if+you’re+black+or+white'''
+print(re.duration_seconds)
+play(dol+re[:int(re.duration_seconds*1000/3)]+mi+dol[:int(dol.duration_seconds*1000/3)]+mi[:int(dol.duration_seconds*1000/2)]+dol[:int(dol.duration_seconds*1000/2)]+mi)
+#dol+a+deer,+a+female+deer+
+sleep(.3)
+play(re+mi[:int(mi.duration_seconds*1000/3)]+fa[:int(fa.duration_seconds*1000/3)]+fa[:int(fa.duration_seconds*1000/3)]+mi[:int(mi.duration_seconds*1000/3)]+re[:int(re.duration_seconds*1000/3)]+fa)
+#re+a+drop+of+golden+sun+
+'''play(mi+fa+so+mi+so+mi+so)
+#me+a+name+i+call+myself+
+play(fa+so+la+la+so+fa+la)
+#fa,+a+long+long+way+to+run+
+play(so+dol+re+mi+fa+so+la)
+#sew,+a+needle+pulling+thread+
+play(la+re+mi+fa+so+la+si)
+#la,+a+note+to+follow+sol+
+play(si+mi+fa+so+la+si+doh)
+#ti,+a+drink+with+jam+and+bread+
+play(si+la+la+fa+si+so+doh+so+mi+re)
+#and+that+brings+us+back+to+dol.
+'''
