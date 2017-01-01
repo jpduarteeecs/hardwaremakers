@@ -1,9 +1,11 @@
 #https://github.com/jiaaro/pydub
+#http://www.ffmpeg.org/ maybe be needed as well
+#install pyaudio, python -m pip install pyaudio
 from pydub import AudioSegment
 from pydub.playback import play
 from time import sleep
 
-path = "/home/juan/research/hardwaremakers/python-board/sound/"
+path = "C:/Users/minaz/Desktop/hardwaremakers/python-board/sound/"
 #fname = "/home/juan/Downloads/Angklung.mp3"
 #Mina Azhar (Juan's wife) did all the mp3 conversion, thank you!
 fname = path+"low_do_long.mp3"
