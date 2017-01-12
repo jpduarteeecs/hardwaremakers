@@ -8,16 +8,9 @@ SYSTEM_MODE(MANUAL);
 #define echoPin D5 // Echo pin on the HC-SR04
 
 unsigned long distance;
-unsigned long threshold_low = 350;
-unsigned long threshold_high = 800;
-unsigned long window = 200;
-
-unsigned long distance_previous;
-
-long lastDebounceTime = 0;
-long debounceDelay = 50;
-boolean activation = true;
-
+unsigned long distance_sum=0;
+unsigned long count=0;
+unsigned long sample_number=10;
 char inByte = '1';
 
 void setup() {
@@ -35,28 +28,14 @@ void loop() {
   //#################################sensor end#######################
 
   if (inByte=='1') {
-    if ((distance<(threshold_low+window)) && activation) {
-      lastDebounceTime = millis();
-      activation = false;
-      distance_previous = threshold_low;
-    } 
-    if ((distance<(threshold_high+window)) && (distance>(threshold_high-window)) && activation) {
-      lastDebounceTime = millis();
-      activation = false;
-      distance_previous = threshold_high;
-    } 
-  
-    if ((distance>(distance_previous+window)) && (distance<(distance_previous-window)) && !activation) {
-      activation = true;
-    }  
- 
-    if (((millis() - lastDebounceTime) > debounceDelay) && !activation) {
-      // whatever the reading is at, it's been there for longer
-      // than the debounce delay, so take it as the actual current state:
-  
-      Serial.println(distance);
+    if (count<sample_number) {
+      count+=1;
+      distance_sum+=distance;
+    } else { 
+      Serial.println(distance_sum/sample_number);
       inByte = '0';
-      activation = true;
+      count = 1;
+      distance_sum=0;
     }
 
   } 
