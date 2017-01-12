@@ -8,10 +8,17 @@ SYSTEM_MODE(MANUAL);
 #define echoPin D5 // Echo pin on the HC-SR04
 
 unsigned long distance;
+unsigned long threshold_low = 350;
+unsigned long threshold_high = 800;
+unsigned long window = 200;
+
+unsigned long distance_previous;
+
 long lastDebounceTime = 0;
 long debounceDelay = 50;
 boolean activation = true;
-char inByte = '0';
+
+char inByte = '1';
 
 void setup() {
   Serial.begin (9600);
@@ -20,18 +27,26 @@ void setup() {
 }
 
 void loop() {
+  //#################################sensor begin#####################
   digitalWrite(trigPin, HIGH);
   delayMicroseconds(500);
   digitalWrite(trigPin, LOW);
   distance = pulseIn(echoPin,HIGH);
+  //#################################sensor end#######################
 
   if (inByte=='1') {
-    if ((distance<300) && activation) {
+    if ((distance<(threshold_low+window)) && activation) {
       lastDebounceTime = millis();
       activation = false;
-    }
+      distance_previous = threshold_low;
+    } 
+    if ((distance<(threshold_high+window)) && (distance>(threshold_high-window)) && activation) {
+      lastDebounceTime = millis();
+      activation = false;
+      distance_previous = threshold_high;
+    } 
   
-    if ((distance>300) ) {
+    if ((distance>(distance_previous+window)) && (distance<(distance_previous-window)) && !activation) {
       activation = true;
     }  
  
@@ -39,16 +54,18 @@ void loop() {
       // whatever the reading is at, it's been there for longer
       // than the debounce delay, so take it as the actual current state:
   
-    Serial.println(distance);
-    inByte = '0';
-    activation = true;
+      Serial.println(distance);
+      inByte = '0';
+      activation = true;
     }
 
   } 
-    
+
+  //#################################data from computer begin#######################
   if(Serial.available()){ // only send data back if data has been sent
     inByte = Serial.read(); // read the incoming data
   }
+  //#################################data from computer end#######################
   
 }
 

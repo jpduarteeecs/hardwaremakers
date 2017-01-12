@@ -7,7 +7,6 @@ import serial #this library is to connect using serial port, library pyserial is
 from pydub import AudioSegment
 from pydub.playback import play
 import time
-import struct
 
 #Mina Azhar (Juan's wife) did all the mp3 conversion, thank you!
 path = "/home/juan/research/hardwaremakers/labs_sp17/angklung/mp3files/"
@@ -16,9 +15,6 @@ dol = AudioSegment.from_mp3(fname)
 
 ser = serial.Serial('/dev/ttyACM0', 9600) # Establish the connection on a specific port, for windows use COMX with X the port number
 
-flag_play = True
-start_time = 0
-counter = 32
 ser.write(str.encode('1'))
 
 while True:#we use a "while True:" so the serial connection is always open
@@ -36,4 +32,4 @@ while True:#we use a "while True:" so the serial connection is always open
 
     """The b prefix in Python 3 just means that it is a bytes literal. It's not part of the output, that's just telling you the type.
     The \r\n is a common Carriage-Return and Newline line-ending characters. You can remove that from your string by calling strip()."""
-    sleep(.1) # Delay for one tenth of a second
+    #sleep(.1) # Delay for one tenth of a second
