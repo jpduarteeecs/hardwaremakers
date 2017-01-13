@@ -4,7 +4,7 @@ Access to small and inexpensive computing hardware, sensors, actuators, and batt
 
 ## Tentative Spring 2017 Schedule
 
-1. [Introduction Week](https://github.com/jpduarteeecs/hardwaremakers/blob/master/labs_sp17/angklung/angkulng.md)
+1. [Introduction Week](https://github.com/jpduarteeecs/hardwaremakers/blob/master/labs_sp17/introduction/intro.md)
 2. [Hardware Boards](https://github.com/jpduarteeecs/hardwaremakers/blob/master/labs_sp17/angklung/angkulng.md)
 3. Programing computing hardware
 4. Oscilloscope, Function Generator and Multimeter
