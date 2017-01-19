@@ -10,7 +10,7 @@ This semester we will use [Redbear Duo](https://github.com/redbear/Duo) developm
 
 The RedBear Duo supports several programming languages such as Arduino, C/C++, JavaScript and Python (JavaScript and Python support is in beta and we will not be using it at this moment).
 
-### Firmware (Juan will do this for you)
+### Firmware (DO NOT DO THIS, Juan will take care of it)
 
 Once you get your new RedBear Duo, you must update your Duo to the latest system firmware (see a simple [video](https://www.youtube.com/watch?v=RnXmkdOco4w) about firmware). This step is a little tricky; indeed, it seems that the firmware update only works well from Linux (maybe on Winodows as well, in Mac not at all). I will do this for you, so once you get your Redbear Duo board please contact me and bring it to me. I will do the rest. Anyway, these are some steps to update the firmware using Linux:
 
@@ -26,7 +26,7 @@ Once you have installed Arduino IDE, you need to install the corresponding board
 
 ### Run Examples
 
-In the Arduino IDE, go to "Files", "Examples", "Redbear_Duo", "Basics" and then try Blink and RGB examples.
+In the Arduino IDE, go to "Files", "Examples", "Redbear_Duo", "Basics" and then try Blink and RGB examples. Note that before loading a code, you need to select, in "Tools", RedBear Duo board, and then in "Tools" as well, select a serial port.
 
 ## Create github account
 
@@ -48,8 +48,8 @@ You can install IPython following the same instructions as in [EE16A IPython ins
 ### Python libraries
 For some labs, we will need to use [serial communication](https://www.youtube.com/watch?v=JJZOTtwpAjA) to connect computers with hardware. In order to do this with Python, please install [pyserial](http://pyserial.readthedocs.io/en/latest/pyserial.html).
 
-Another library that we will need is [pydub](https://github.com/jiaaro/pydub). Using this library we can play different sound formats in python and make some fun and simple [projects](https://www.youtube.com/watch?v=dPkmSmyyr30) with it. Please be aware that pydub has some dependences, you will need [ffmpeg](http://www.ffmpeg.org/) or libav. In addition, you may need to install [pyaudio](https://people.csail.mit.edu/hubert/pyaudio/).
+(**Mac Users may have issues, we are working on this**) Another library that we will need is [pydub](https://github.com/jiaaro/pydub). Using this library we can play different sound formats in python and make some fun and simple [projects](https://www.youtube.com/watch?v=dPkmSmyyr30) with it. Please be aware that pydub has some dependences, you will need [ffmpeg](http://www.ffmpeg.org/) or libav. In addition, you may need to install [pyaudio](https://people.csail.mit.edu/hubert/pyaudio/).
 
-To test pyserial, upload the code [serialexample.io](https://github.com/jpduarteeecs/hardwaremakers/blob/master/python-board/serialexample/serialexample.ino) to your RedBear Duo, and then run the python code [serialexamplepython.py](https://github.com/jpduarteeecs/hardwaremakers/blob/master/python-board/serialexamplepython.py) from your atom editor.
+To test pyserial, upload the code [serialexample.io](https://github.com/jpduarteeecs/hardwaremakers/blob/master/python-board/serialexample/serialexample.ino) to your RedBear Duo, and then run the python code [serialexamplepython.py](https://github.com/jpduarteeecs/hardwaremakers/blob/master/python-board/serialexamplepython.py) from your atom editor. Remember to update the serial port address, it is the same as the one used in the Arduino IDE.
 
-To test the sound, run the python code [soundexample](https://github.com/jpduarteeecs/hardwaremakers/blob/master/python-board/sound/soundexample.py), make sure to change the path to your own computer path. 
+To test the sound, run the python code [soundexample](https://github.com/jpduarteeecs/hardwaremakers/blob/master/python-board/sound/soundexample.py), make sure to change the path to your own computer path.
