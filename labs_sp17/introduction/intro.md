@@ -2,7 +2,7 @@
 
 This week we are going to make sure we are all set up in terms of software and hardware (at least with a development board) so we can go smoothly through the semester. This would be (probably) the most stressful week, please be patient, we can do it!
 
-Most of the softwares that are indicated to be downloaded and installed are suggestions. Feel free to use the software that you think is the best for you, and let us know why, then we can all learn from it.
+Most of the softwares that are indicated to be downloaded and installed are suggestions. Feel free to use the software that you think is the best for you, and let us know why- then we can all learn from it.
 
 ## Redbear Duo
 
@@ -12,7 +12,7 @@ The RedBear Duo supports several programming languages such as Arduino, C/C++, J
 
 ### Firmware (DO NOT DO THIS, Juan will take care of it)
 
-Once you get your new RedBear Duo, you must update your Duo to the latest system firmware (see a simple [video](https://www.youtube.com/watch?v=RnXmkdOco4w) about firmware). This step is a little tricky; indeed, it seems that the firmware update only works well from Linux (maybe on Winodows as well, in Mac not at all). I will do this for you, so once you get your Redbear Duo board please contact me and bring it to me. I will do the rest. Anyway, these are some steps to update the firmware using Linux:
+Once you get your new RedBear Duo, you must update your Duo to the latest system firmware (see a simple [video](https://www.youtube.com/watch?v=RnXmkdOco4w) about firmware). This step is a little tricky; indeed, it seems that the firmware update only works well from Linux (maybe on Windows as well, in Mac not at all). I will do this for you, so once you get your Redbear Duo board please contact me and bring it to me. I will do the rest. Anyway, these are some steps to update the firmware using Linux:
 
 1.  Install [dfu](https://github.com/redbear/Duo/blob/master/docs/dfu-util_installation_guide.md) (This works well in Linux, do not forget to add sudo before using dfu, otherwise it does not work).
 2.  Using git, clone from Github the entire folder from [Duo](https://github.com/redbear/Duo) or just download [firmware files](https://github.com/redbear/Duo/tree/master/firmware).
@@ -30,17 +30,17 @@ In the Arduino IDE, go to "Files", "Examples", "Redbear_Duo", "Basics" and then 
 
 ## Create github account
 
-We will do a lot of file sharing (not just code!) during this semester, we will try to use github to share files and to be as organized as possible. Using your educational email (It is ok to use another email, but using an .edu you can have private repositories) create a github account in this [link](https://github.com/). Once you are set with your github account, you can request a [github education plan](https://education.github.com/), this takes a while to get approved, better you do it soon.
+We will do a lot of file sharing (not just code!) during this semester. We will try to use github to share files and to be as organized as possible. Using your educational email (It is ok to use another email, but using a .edu, you can have private repositories) create a github account in this [link](https://github.com/). Once you are set with your github account, you can request a [github education plan](https://education.github.com/), this takes a while to get approved, better you do it soon.
 
-If you are using Mac or Windows, you can download a [github desktop](https://desktop.github.com/) that will help you with the organization of files. Linux users only need to use line command. I strongly recommend you to try to use Linux, for example an Ubuntu distribution, while dealing with hardware and prototyping board, Linux is always much much reliable and simpler.
+If you are using Mac or Windows, you can download a [github desktop](https://desktop.github.com/) that will help you with the organization of files. Linux users only need to use line command. I strongly recommend you try to use Linux, for example an Ubuntu distribution, while dealing with hardware and prototyping boards. Linux is much more reliable and simpler.
 
 ## Text editor
 
-Everyone is free to use any text editor; however, I recommend to use [atom](https://atom.io/). It is open source and can be customized. You can install the package [script](https://atom.io/packages/script), which let you run code directly in the text editor (check website for shortcut of your operating system). This will be handy, mainly for Windows users, for Linux, you are all good, command line is just good enough.
+Everyone is free to use any text editor; however, I recommend using [atom](https://atom.io/). It is open source and can be customized. You can install the package [script](https://atom.io/packages/script), which lets you run code directly in the text editor (check website for shortcut of your operating system). This will be handy for Windows users. Command line is fine for Linux users.
 
 ## Software needed
 
-Although the focus of this course is on hardware, we will need to use a lot of software as well. There are several installations that we need to do so we can run them on our computers and use them to communicate with hardware as well.
+Although the focus of this course is on hardware, we will need to use a lot of software as well. There are several installations that we need on our computers to communicate with hardware.
 
 ### Installing IPython
 You can install IPython following the same instructions as in [EE16A IPython installation](http://inst.eecs.berkeley.edu/~ee16a/fa15/installation.html).
