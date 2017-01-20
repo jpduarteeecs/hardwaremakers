@@ -46,10 +46,21 @@ Although the focus of this course is on hardware, we will need to use a lot of s
 You can install IPython following the same instructions as in [EE16A IPython installation](http://inst.eecs.berkeley.edu/~ee16a/fa15/installation.html).
 
 ### Python libraries
-For some labs, we will need to use [serial communication](https://www.youtube.com/watch?v=JJZOTtwpAjA) to connect computers with hardware. In order to do this with Python, please install [pyserial](http://pyserial.readthedocs.io/en/latest/pyserial.html).
+For some labs, we will need to use [serial communication](https://www.youtube.com/watch?v=JJZOTtwpAjA) to connect computers with hardware. In order to do this with Python, please install:
 
-Another library that we will need is [pydub](https://github.com/jiaaro/pydub). Using this library we can play different sound formats in python and make some fun and simple [projects](https://www.youtube.com/watch?v=dPkmSmyyr30) with it. Please be aware that pydub has some dependences, you will need [ffmpeg](http://www.ffmpeg.org/) (for Mac use `brew install ffpmeg —with-ffplay`) or libav. In addition, you may need to install [pyaudio](https://people.csail.mit.edu/hubert/pyaudio/).
+Before you install pydub, you will likely need to install the following:
 
++ [ffmpeg](http://www.ffmpeg.org/) (for Mac use `brew install ffpmeg —with-ffplay`) or libav. 
++ In addition, you may need to install [pyaudio](https://people.csail.mit.edu/hubert/pyaudio/).
++ [pydub](https://github.com/jiaaro/pydub). Using this library we can play different sound formats in python and make some fun and simple [projects](https://www.youtube.com/watch?v=dPkmSmyyr30) with it.
++ [pyserial](http://pyserial.readthedocs.io/en/latest/pyserial.html).
 To test pyserial, upload the code [serialexample.io](https://github.com/jpduarteeecs/hardwaremakers/blob/master/python-board/serialexample/serialexample.ino) to your RedBear Duo, and then run the python code [serialexamplepython.py](https://github.com/jpduarteeecs/hardwaremakers/blob/master/python-board/serialexamplepython.py) from your atom editor. Remember to update the serial port address, it is the same as the one used in the Arduino IDE.
+
+(For Mac using Python 3.5:)
+```
+pip3.5 install pyaudio
+pip3.5 install pydub
+pip3.5 install pyserial
+```
 
 To test the sound, run the python code [soundexample](https://github.com/jpduarteeecs/hardwaremakers/blob/master/python-board/sound/soundexample.py), make sure to change the path to your own computer path.
