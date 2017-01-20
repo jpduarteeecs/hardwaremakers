@@ -36,7 +36,7 @@ If you are using Mac or Windows, you can download a [github desktop](https://des
 
 ## Text editor
 
-Everyone is free to use any text editor; however, I recommend to use [atom](https://atom.io/). It is open source and can be customized. You can install the package [script](https://atom.io/packages/script), which let you run code directly in the text editor. This will be handy, mainly for Windows users, for Linux, you are all good, command line is just good enough.
+Everyone is free to use any text editor; however, I recommend to use [atom](https://atom.io/). It is open source and can be customized. You can install the package [script](https://atom.io/packages/script), which let you run code directly in the text editor (check website for shortcut of your operating system). This will be handy, mainly for Windows users, for Linux, you are all good, command line is just good enough.
 
 ## Software needed
 
@@ -48,7 +48,7 @@ You can install IPython following the same instructions as in [EE16A IPython ins
 ### Python libraries
 For some labs, we will need to use [serial communication](https://www.youtube.com/watch?v=JJZOTtwpAjA) to connect computers with hardware. In order to do this with Python, please install [pyserial](http://pyserial.readthedocs.io/en/latest/pyserial.html).
 
-(**Mac Users may have issues, we are working on this**) Another library that we will need is [pydub](https://github.com/jiaaro/pydub). Using this library we can play different sound formats in python and make some fun and simple [projects](https://www.youtube.com/watch?v=dPkmSmyyr30) with it. Please be aware that pydub has some dependences, you will need [ffmpeg](http://www.ffmpeg.org/) or libav. In addition, you may need to install [pyaudio](https://people.csail.mit.edu/hubert/pyaudio/).
+Another library that we will need is [pydub](https://github.com/jiaaro/pydub). Using this library we can play different sound formats in python and make some fun and simple [projects](https://www.youtube.com/watch?v=dPkmSmyyr30) with it. Please be aware that pydub has some dependences, you will need [ffmpeg](http://www.ffmpeg.org/) (for Mac use `brew install ffpmeg —with-ffplay`) or libav. In addition, you may need to install [pyaudio](https://people.csail.mit.edu/hubert/pyaudio/).
 
 To test pyserial, upload the code [serialexample.io](https://github.com/jpduarteeecs/hardwaremakers/blob/master/python-board/serialexample/serialexample.ino) to your RedBear Duo, and then run the python code [serialexamplepython.py](https://github.com/jpduarteeecs/hardwaremakers/blob/master/python-board/serialexamplepython.py) from your atom editor. Remember to update the serial port address, it is the same as the one used in the Arduino IDE.
 
