@@ -4,13 +4,13 @@
 
 This week we are going to practice the process to upload code to a board, establish a serial communication with a computer, and use a computer to analyze the data from serial port. In addition, we will have the first chance to use oscilloscope, function generator, and power supply to test and understand HC-SR4 sensors.
 
-At the end of the class, we will play all together a [song](http://bit.ly/2fzAcMh).
+At the end of the class, we will play all together a [song](http://bit.ly/2fzAcMh) :musical_note: :musical_note: :musical_note::musical_keyboard:.
 
 This week experience is composed of 4 steps: laboratory equipment, HC-SR4 sensor characterization, HC-SR4 sensor implementation in a development board, and system integration.
 
-## 1. Laboratory Equipment
+## 1. Laboratory Equipment :radio:
 
-This week we will start using oscilloscope, function generator, and power supply. They are extremely helpful on hardware design and debugging, so try to practice with them as much as possible. The following picture shows a typical setup that you will find in an electronics lab.
+This week we will start using oscilloscope, function generator, and power supply. They are extremely helpful on hardware design and debugging, so try to practice with them as much as possible :wink:. The following picture shows a typical setup that you will find in an electronics lab.
 
 ![alt tag](pics/bench.png "Lab Bench")
 
@@ -25,7 +25,7 @@ A DC power supply supplies DC (constant) voltage, or in other words, it supply e
 5. Positive terminal connected to the appropriate breadboard power rails
 6. Negative terminal connected to all breadboard ground rails
 
-Note that you can buy a new DC power supply for ~$30.
+Note that you can buy a new DC power supply for ~$30 :dollar: :dollar:.
 
 ### Function Generator
 
@@ -72,6 +72,67 @@ Once the sensor is on the breadboard, turn on the power supply output, function 
 ![breadboard](pics/HR5.png)
 
 ## 3. HC-SR4 Sensor Implementation in a Development Board
+
+Now that you already know how the HC-SR4 sensor works using a oscilloscope, we will implement it using a development board. First, lets understand few things about the board being used. It has different pins, some of them can have different functionalities. The following diagram shows a pin configuration of a redbear duo board (for more information on pins, visit this [link](https://github.com/redbear/Duo/blob/master/docs/duo_introduction.md)):
+
+![breadboard](pics/RBDuo_Pinout.png)
+
+In this experience we will use few pins:
+
+* VIN: The redbear will be feed by 5V coming from computer using the micro-USB connection. This voltage can be used at the VIN pin connection as well. In our case, we will connect it to the 5V input voltage required by the HC-SR4.
+* GND: Ground is needed, so all the sensors are at the same voltage reference. Note that there are two grounds (left and side pins), both of them are actually connected.
+* D5: It is a digital I/O (input/output). Digital in the sense that it only read/set a digital high (1 in binary, 3.3V in voltage) or a digital low (0 in binary, 0V in voltage).
+* D6:
+
+
+
+```Arduino
+#if defined(ARDUINO)
+SYSTEM_MODE(MANUAL);
+#endif
+
+#define trigPin D6 // Trig pin on the HC-SR04
+
+void setup() {
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+}
+
+void loop() {
+  digitalWrite(trigPin, HIGH);
+  delay(5);
+  digitalWrite(trigPin, LOW);
+  delay(5);
+}
+```
+
+
+
+```
+#if defined(ARDUINO)
+SYSTEM_MODE(MANUAL);
+#endif
+
+#define trigPin D6 // Trig pin on the HC-SR04
+#define echoPin D5 // Echo pin on the HC-SR04
+
+unsigned long distance;
+
+void setup() {
+  Serial.begin (9600);
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+}
+
+void loop() {
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(500);
+  digitalWrite(trigPin, LOW);
+  distance = pulseIn(echoPin,HIGH);
+  Serial.println(distance);
+  delay(500);
+}
+```
 
 picture redbear duo pins / particle photon
 
