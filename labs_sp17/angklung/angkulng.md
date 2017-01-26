@@ -110,7 +110,7 @@ void loop() {
 }
 ```
 
-You need to understand few things of the previous code:
+You need to understand few things from the previous code:
 
 * For now, ignore the `#if defined(ARDUINO)` part. It indicates how code is being loaded. This time we load it using serial port, it can be also loaded wireless!.
 * `void setup()` is run once, only at the beginning of the code. It is used to set several things, in this case, pin and serial communication.
@@ -118,7 +118,9 @@ You need to understand few things of the previous code:
 * `void loop() ` this part of the code indicates a loop that is going to constantly execute while code is running.
 * `digitalWrite(trigPin, HIGH);` is setting the output pin trigPin to a high value (3.3V).
 * `digitalWrite(trigPin, LOW);` is setting the output pin trigPin to a low value (0V).
-* `delay(5);` delay function is used to stop the executing of the code for a given amount of miliseconds, in this case, 5ms.
+* `delay(5);` delay function is used to stop the executing of the code for a given amount of milliseconds, in this case, 5ms.
+
+In order to read the distance sensor by the HC-SR4 and transmit it using serial communication, upload the following [code](https://github.com/jpduarteeecs/hardwaremakers/blob/master/ultrasonic/HC_SR4_Demo_serial/HC_SR4_Demo_serial.ino):
 
 ```Arduino
 #if defined(ARDUINO)
@@ -146,8 +148,13 @@ void loop() {
 }
 ```
 
-picture redbear duo pins / particle photon
+It is very similar to the first code but you need to understand few new things from the previous code:
 
-picture sensor set up
+* `Serial.begin (9600);` this set the serial communication rate. The same rate need to be set when you want to read it using your python code or any other serial display.
+* `delayMicroseconds(500);` this function set a delay but in microseconds, in this case, 500us.
+* `distance = pulseIn(echoPin,HIGH);` pulseIn function measure the width (time length of a signal being hight) of signal in microseconds. For a more detailed explanation visit particle photon [documentation](https://docs.particle.io/reference/firmware/core/#pulsein-).
+* `Serial.println(distance);` prints the value obtained from the sensor to the serial port communication.
+
+Now [open your serial terminal](https://youtu.be/2JImBb9YLdg?t=4m43s) in the Arduino IDE, and you can see how the sensor measure the distance.
 
 ## 4. System Integration
