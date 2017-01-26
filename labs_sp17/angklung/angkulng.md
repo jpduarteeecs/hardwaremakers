@@ -114,7 +114,11 @@ You need to understand few things of the previous code:
 
 * For now, ignore the `#if defined(ARDUINO)` part. It indicates how code is being loaded. This time we load it using serial port, it can be also loaded wireless!.
 * `void setup()` is run once, only at the beginning of the code. It is used to set several things, in this case, pin and serial communication.
-*  
+* `pinMode(trigPin, OUTPUT);` sets the pin trigPin as an OUTPUT
+* `void loop() ` this part of the code indicates a loop that is going to constantly execute while code is running.
+* `digitalWrite(trigPin, HIGH);` is setting the output pin trigPin to a high value (3.3V).
+* `digitalWrite(trigPin, LOW);` is setting the output pin trigPin to a low value (0V).
+* `delay(5);` delay function is used to stop the executing of the code for a given amount of miliseconds, in this case, 5ms.
 
 ```Arduino
 #if defined(ARDUINO)
