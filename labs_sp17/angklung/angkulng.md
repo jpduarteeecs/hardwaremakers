@@ -2,21 +2,21 @@
 
 ![alt tag](pics/Angklung-Lessons_Musicon.png "Angklung")
 
-This week we are going to practice the process to upload code to a board, establish a serial communication with a computer, and use a computer to analyze the data from serial port. In addition, we will have the first chance to use oscilloscope, function generator, and power supply to test and understand HC-SR4 sensors.
+This week we are going to practice the process to upload code to a board, establish a serial communication with a computer, and use a computer to analyze the data from serial port. In addition, this will be our first opportunity to use an oscilloscope, function generator, and power supply to test and understand HC-SR4 sensors.
 
-At the end of the class, we will play all together a [song](http://bit.ly/2fzAcMh) :musical_note: :musical_note: :musical_note::musical_keyboard:.
+At the end of the class, we will all play together a [song](http://bit.ly/2fzAcMh) :musical_note: :musical_note: :musical_note::musical_keyboard:.
 
-This week experience is composed of 4 steps: laboratory equipment, HC-SR4 sensor characterization, HC-SR4 sensor implementation in a development board, and system integration.
+The project for this week is composed of 4 steps: laboratory equipment, HC-SR4 sensor characterization, HC-SR4 sensor implementation in a development board, and system integration.
 
 ## 1. Laboratory Equipment :radio:
 
-This week we will start using oscilloscope, function generator, and power supply. They are extremely helpful on hardware design and debugging, so try to practice with them as much as possible :wink:. The following picture shows a typical setup that you will find in an electronics lab.
+This week we will start by using an oscilloscope, function generator, and power supply. They are extremely helpful on hardware design and debugging, so try to practice with them as much as possible :wink:. The following picture shows a typical setup that you will find in an electronics lab.
 
 ![alt tag](pics/bench.png "Lab Bench")
 
 ### DC Power Supply
 
-A DC power supply supplies DC (constant) voltage, or in other words, it supply electric energy to an electrical load. You can use them to feed and test your sensors and circuits. Today we will use them to generate a 5V supply needed for the HC-SR4 sensor. In order to setup a power supply you need to follow these instructions (see [video](https://youtu.be/oP0IX2d84Nk)):
+A DC power supply supplies DC (constant) voltage, or in other words, it supplies electric energy to an electrical load. You can use them to feed and test your sensors and circuits. Today we will use them to generate a 5V supply needed for the HC-SR4 sensor. In order to setup a power supply you need to follow these instructions (see [video](https://youtu.be/oP0IX2d84Nk)):
 
 1. Power supply is turned on
 2. Current limit is set appropriately (0.1A)
@@ -29,7 +29,7 @@ Note that you can buy a new DC power supply for ~$30 :dollar: :dollar:.
 
 ### Function Generator
 
-A function generator is an equipment used to generate different types of electrical waveforms over a wide range of frequencies. We will use them to simulate a trigger signal for the HC-SR4 sensor. To setup a signal follow these instructions (see [video](https://youtu.be/zpEMqZeFxMI)):
+A function generator is a device used to generate different types of electrical waveforms over a wide range of frequencies. We will use it today to simulate a trigger signal for the HC-SR4 sensor. To setup a signal follow these instructions (see [video](https://youtu.be/zpEMqZeFxMI)):
 
 1. Positive terminal connected to designated input
 2. Negative terminal connected to all breadboard ground rails
@@ -39,7 +39,7 @@ A function generator is an equipment used to generate different types of electri
 
 ### Oscilloscope
 
-Oscilloscope are use to observe and measure constantly varying signal voltages as a function of time. To set up your oscilloscope follow these instructions (for setup see this [video](https://youtu.be/ZjLhh1Y8Asw), and for signal measurement follow this [video](https://youtu.be/t1-gUZGON_E)):
+Oscilloscopes are used to observe and measure variable signal voltages as a function of time. To set up your oscilloscope follow these instructions (for setup see this [video](https://youtu.be/ZjLhh1Y8Asw), and for signal measurement follow this [video](https://youtu.be/t1-gUZGON_E)):
 
 1. Probe ground clips are connected to a breadboard ground rail
 2. Voltage and time scales are appropriate and reasonable
@@ -49,7 +49,7 @@ Channel probe type is set to 10X
 
 ### Breadboard
 
-Breadboard are for prototyping of electronics. They let you construct a circuit without soldering its component. Follow the picture for connection configuration:
+Breadboards are for prototyping of electronics. They let you construct a circuit without having to solder the components together. Follow the picture for connection configuration:
 
 ![breadboard](pics/breadboard.png "Breadboard")
 
@@ -65,9 +65,9 @@ The trigger pin should be connected to a function generator which will supply a 
 
 ![breadboard](pics/HR3.png)
 
-Finally, it is generally good practice to make sure your grounds are all referencing the same voltage. Multiple grounds in a circuit can sometimes lead to unexpected behavior if not wired properly. Here, the power supply and function generator are crucially using the same ground and additionally the oscilloscope channels are as well.
+Finally, it is generally a good practice to make sure your grounds are all referencing the same voltage. Multiple grounds in a circuit can sometimes lead to unexpected behavior if not wired properly. Here, the power supply and function generator are crucially using the same ground and additionally the oscilloscope channels are as well.
 
-Once the sensor is on the breadboard, turn on the power supply output, function generator output, and the oscilloscope. As this [video](https://youtu.be/UqZWHig9Gnw) shows, click the autoscale button. You should see at least the square wave and some signal for the echo. If the echo signal does not display completely on the screen, scale and translate the signal until all of it does. Now both signals should be visible and you can manipulate the duty cycle of the echo signal by moving your hand closer or further to the sensor as shown in this [video](https://youtu.be/BAyzCAeqiWk).
+ Once the sensor is on the breadboard, turn on the power supply output, function generator output, and the oscilloscope. As this [video](https://youtu.be/UqZWHig9Gnw) shows, click the autoscale button. You should see at least the square wave and some signal for the echo. If the echo signal does not display completely on the screen, scale and translate the signal until all of it does. Now both signals should be visible and you can manipulate the duty cycle of the echo signal by moving your hand closer or further to the sensor as shown in this [video](https://youtu.be/BAyzCAeqiWk).
 
 ![breadboard](pics/HR5.png)
 
@@ -158,3 +158,111 @@ It is very similar to the first code but you need to understand few new things f
 Now [open your serial terminal](https://youtu.be/2JImBb9YLdg?t=4m43s) in the Arduino IDE, and you can see how the sensor measure the distance.
 
 ## 4. System Integration
+
+We know how the sensor works, how the development board can read and transmit data from the sensor, and how to create sounds (from [previous week](https://github.com/jpduarteeecs/hardwaremakers/blob/master/labs_sp17/introduction/intro.md) experience). Using a code for the develptment board and a code in python we can create a simple Angklung instrument:
+
+### Development Board Code:
+
+Upload the following [code](https://github.com/jpduarteeecs/hardwaremakers/blob/master/labs_sp17/angklung/angklung_redbear/angklung_redbear.ino) in the redbear duo. This code average 10 sensor data measurements and transmit it using serial port. In addition, it does not transmit data if `inByte` variable is set to 0. This variable is set by the python code and transmitted using serial communication. This is needed when a note is played, so not extra data is transmitted while this happens. Once note is played already, serial communication is active again.
+
+```Arduino
+#if defined(ARDUINO)
+SYSTEM_MODE(MANUAL);
+#endif
+
+#define trigPin D6 // Trig pin on the HC-SR04
+#define echoPin D5 // Echo pin on the HC-SR04
+
+unsigned long distance;
+unsigned long distance_sum=0;
+unsigned long count=0;
+unsigned long sample_number=10;
+char inByte = '1';
+
+void setup() {
+  Serial.begin (9600);
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+}
+
+void loop() {
+  //#################################sensor begin#####################
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(500);
+  digitalWrite(trigPin, LOW);
+  distance = pulseIn(echoPin,HIGH);
+  //#################################sensor end#######################
+
+  if (inByte=='1') {
+    if (count<sample_number) {
+      count+=1;
+      distance_sum+=distance;
+    } else {
+      Serial.println(distance_sum/sample_number);
+      inByte = '0';
+      count = 1;
+      distance_sum=0;
+    }
+
+  }
+
+  //#################################data from computer begin#######################
+  if(Serial.available()){ // only send data back if data has been sent
+    inByte = Serial.read(); // read the incoming data
+  }
+  //#################################data from computer end#######################
+
+}
+```
+
+### Python Code:
+
+Use the following python [code](https://github.com/jpduarteeecs/hardwaremakers/blob/master/labs_sp17/angklung/angklung_python.py) to read data from development board and play musical notes. If you were able to finish last week experience, this code should run fine in your computer. There are few things you need to understand/change from the code:
+
+* `path = "/home/juan/research/hardwaremakers/labs_sp17/angklung/mp3files/"` you need to update the path to the one in your computer.
+* `fname = path+"low_do_long.mp3"` change this to play another note.
+* `ser = serial.Serial('/dev/ttyACM0', 9600) ` you need to change the serial port address. Use the same one that you set in the Arduino IDE.
+* `while True:` this let us keep running the code continuously.
+
+```Python
+from time import sleep #this library allows us to make stop in the execution of the program
+import serial #this library is to connect using serial port, library pyserial is needed for this
+from pydub import AudioSegment
+from pydub.playback import play
+import time
+
+#Mina Azhar (Juan's wife) did all the mp3 conversion, thank you!
+path = "/home/juan/research/hardwaremakers/labs_sp17/angklung/mp3files/" #change to your own path
+fname = path+"low_do_long.mp3" #change to another note as needed
+note = AudioSegment.from_mp3(fname)
+
+ser = serial.Serial('/dev/ttyACM0', 9600) # Establish the connection on a specific port, for windows use COMX with X the port number
+
+ser.write(str.encode('1')) #this let redbear duo to continue sending data
+
+while True:#we use a "while True:" so the serial connection is always open
+
+    #ser.write(bytearray(struct.pack("f", 5.1)))
+    bytes_from_serial = ser.readline() #read serial, return a byte result
+    print (bytes_from_serial.decode("utf-8") ) # print in serial form, it transform the byte data to string
+
+    value_sensor = int(bytes_from_serial.decode("utf-8") ) #transfor data to a int number
+
+    if (value_sensor<1000 ): #only distance signal less than 1000us
+        ser.write(str.encode('0')) #this stop the redbear duo from sending new data
+        play(note[:int(note.duration_seconds*value_sensor)]) #play sound
+        ser.write(str.encode('1')) #this let redbear duo to continue sending data
+    else:
+        ser.write(str.encode('1')) #this let redbear duo to continue sending data
+```        
+
+We will try "Mary had a little lamb":
+
+![notes1](pics/solfege1335839387298.jpg)
+
+![notes](pics/maryhadalittlelamb.GIF)
+
+
+# Acknowledgment
+
+The material of today's experience was designed and tested by Juan Duarte, Ram Menon, Thomas Habib, Kunal Gosar, and Tom Osborn.
