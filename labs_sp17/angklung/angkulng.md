@@ -81,10 +81,15 @@ In this experience we will use few pins:
 
 * VIN: The redbear will be feed by 5V coming from computer using the micro-USB connection. This voltage can be used at the VIN pin connection as well. In our case, we will connect it to the 5V input voltage required by the HC-SR4.
 * GND: Ground is needed, so all the sensors are at the same voltage reference. Note that there are two grounds (left and side pins), both of them are actually connected.
-* D5: It is a digital I/O (input/output). Digital in the sense that it only read/set a digital high (1 in binary, 3.3V in voltage) or a digital low (0 in binary, 0V in voltage).
-* D6:
+* D5: It is a digital I/O (input/output). Digital in the sense that it only read/set a digital high (1 in binary, 3.3V in voltage) or a digital low (0 in binary, 0V in voltage). This will be used as an INPUT from the echo pin of the HC-SR4 sensor.
+* D6: Same as D6, but it will be used as an OUTPUT to set the trigger signal on
+the HC-SR4 sensor.
 
+Now you can connect them using the following picture (:warning: always connect sensors and wires when circuit is not being feed, e.i. disconnect supply while you connect other stuff :warning:):
 
+![breadboard](pics/IMG_6279.JPG)
+
+Once everything is connected you can upload the following [code](https://github.com/jpduarteeecs/hardwaremakers/blob/master/ultrasonic/HC_SR4_Demo/HC_SR4_Demo.ino), which only trigger a signal for the HC-SR4, we are not yet measuring distance:
 
 ```Arduino
 #if defined(ARDUINO)
@@ -95,7 +100,6 @@ SYSTEM_MODE(MANUAL);
 
 void setup() {
   pinMode(trigPin, OUTPUT);
-  pinMode(echoPin, INPUT);
 }
 
 void loop() {
@@ -106,9 +110,13 @@ void loop() {
 }
 ```
 
+You need to understand few things of the previous code:
 
+* For now, ignore the `#if defined(ARDUINO)` part. It indicates how code is being loaded. This time we load it using serial port, it can be also loaded wireless!.
+* `void setup()` is run once, only at the beginning of the code. It is used to set several things, in this case, pin and serial communication.
+*  
 
-```
+```Arduino
 #if defined(ARDUINO)
 SYSTEM_MODE(MANUAL);
 #endif

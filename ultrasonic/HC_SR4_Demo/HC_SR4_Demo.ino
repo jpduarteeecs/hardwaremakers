@@ -9,7 +9,6 @@ SYSTEM_MODE(MANUAL);
 
 void setup() {
   pinMode(trigPin, OUTPUT);
-  pinMode(echoPin, INPUT);
 }
 
 void loop() {
