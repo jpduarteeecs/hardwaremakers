@@ -57,12 +57,19 @@ Breadboard are for prototyping of electronics. They let you construct a circuit 
 
 Before we use the ultrasonic sensor in our final circuit, it’s worthwhile to simply test the sensor to ensure it operates as expected. You can always find details about pin locations/usage and specifications like operating voltages, current limits, and outputs by searching online for a datasheet. For the HC-SR04, there are 4 pins (Vdd, Trig, Echo, Gnd) which should be connected similar to what’s shown in the following image. Vdd(Power) and Ground should be wired to the 5 volts from the Power Supply.
 
-![breadboard](pics/HR1b.png "Breadboard")
+![breadboard](pics/HR1b.png)
 
-https://youtu.be/UqZWHig9Gnw
+The trigger pin should be connected to a function generator which will supply a square wave. Both the trigger and echo pins should be connected to the oscilloscope so that we can observe them later.
 
-https://youtu.be/BAyzCAeqiWk
-picture sensor
+![breadboard](pics/HR2.png)
+
+![breadboard](pics/HR3.png)
+
+Finally, it is generally good practice to make sure your grounds are all referencing the same voltage. Multiple grounds in a circuit can sometimes lead to unexpected behavior if not wired properly. Here, the power supply and function generator are crucially using the same ground and additionally the oscilloscope channels are as well.
+
+Once the sensor is on the breadboard, turn on the power supply output, function generator output, and the oscilloscope. As this [video](https://youtu.be/UqZWHig9Gnw) shows, click the autoscale button. You should see at least the square wave and some signal for the echo. If the echo signal does not display completely on the screen, scale and translate the signal until all of it does. Now both signals should be visible and you can manipulate the duty cycle of the echo signal by moving your hand closer or further to the sensor as shown in this [video](https://youtu.be/BAyzCAeqiWk).
+
+![breadboard](pics/HR5.png)
 
 ## 3. HC-SR4 Sensor Implementation in a Development Board
 
