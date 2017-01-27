@@ -33,7 +33,7 @@ A function generator is a device used to generate different types of electrical 
 
 1. Positive terminal connected to designated input
 2. Negative terminal connected to all breadboard ground rails
-3. Port impedance is set to High-Z
+3. Port impedance is set to High-Z (In your case: Utility-> Output Setup -> High-Z)
 4. Output is on
 5. Set output waveform is as desired
 
