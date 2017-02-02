@@ -22,5 +22,5 @@ void loop() {
   digitalWrite(trigPin, LOW);
   distance = pulseIn(echoPin,HIGH);
   Serial.println(distance);
-  delay(500);
+  delay(100);
 }

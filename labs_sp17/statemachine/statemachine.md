@@ -51,3 +51,6 @@ States:
 Using the previous information, we can draw a simple state machine for the angklung:
 
 ![angklung_state](pics/stateangklung.png "angklung state")
+
+
+Now, change the [code](https://github.com/jpduarteeecs/hardwaremakers/blob/master/labs_sp17/angklung/angklung_redbear/angklung_redbear.ino) from last week, and implement a state machine in your development board.
