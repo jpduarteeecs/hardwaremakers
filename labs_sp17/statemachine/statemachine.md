@@ -6,7 +6,7 @@ A Finite state machines (FSM) gives an abstract organization to your hardware. F
 
 :zap::zap:From now on, We want you to do all your hardware design using this!! :speak_no_evil::speak_no_evil: (or at least try...)
 
-# Example 1: Turnstile Finite State Machine :suspension_railway: (wikipedia example)
+## Example 1: Turnstile Finite State Machine :suspension_railway: (wikipedia example)
 
 Turnstiles are very simple example that can be modeled using a finite state machine. Once user deposit a coin (or ticket) the turnstile should unlock its arms, allowing a single user to pass. After the user passes through, the arms must be locked again until next users deposit a new coin (ticket).
 
@@ -26,7 +26,7 @@ The functionality can be also summarized in the following table:
 | Unlocked |  push  |  Locked | When the customer has pushed through, locks the turnstile.  |
 
 
-# Example 2: Angklung Finite State Machine :musical_note::musical_note:
+## Example 2: Angklung Finite State Machine :musical_note::musical_note:
 
 During last experience we uploaded a [code](https://github.com/jpduarteeecs/hardwaremakers/blob/master/labs_sp17/angklung/angklung_redbear/angklung_redbear.ino) in the redbear duo to control the angklung functionality. The code averaged 10 sensor data measurements and transmit it using serial port. In addition, it did not transmit data if `inByte` variable is set to 0. That variable was set by the python code and transmitted using serial communication. That was needed when a note is played, so not extra data is transmitted while this happens. Once note was played, serial communication was active again.
 
