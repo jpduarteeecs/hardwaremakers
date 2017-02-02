@@ -6,7 +6,7 @@ Access to small and inexpensive computing hardware, sensors, actuators, and batt
 
 1. [Introduction Week](https://github.com/jpduarteeecs/hardwaremakers/blob/master/labs_sp17/introduction/intro.md)
 2. [Hardware Boards](https://github.com/jpduarteeecs/hardwaremakers/blob/master/labs_sp17/angklung/angkulng.md)
-3. Programing computing hardware
+3. [Programing computing hardware](https://github.com/jpduarteeecs/hardwaremakers/blob/master/labs_sp17/statemachine/statemachine.md)
 4. Oscilloscope, Function Generator and Multimeter
 5. Wifi and Bluetooth
 6. Sensors 1
