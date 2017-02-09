@@ -31,25 +31,19 @@ void loop() {
     if (count<sample_number) {
       count+=1;
       distance_sum+=distance;
-    } else { 
+    } else {
       Serial.println(distance_sum/sample_number);
       inByte = '0';
       count = 1;
       distance_sum=0;
     }
 
-  } 
+  }
 
   //#################################data from computer begin#######################
   if(Serial.available()){ // only send data back if data has been sent
     inByte = Serial.read(); // read the incoming data
   }
   //#################################data from computer end#######################
-  
+
 }
-
-
-
-
-
-

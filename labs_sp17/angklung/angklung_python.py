@@ -10,7 +10,7 @@ import time
 
 #Mina Azhar (Juan's wife) did all the mp3 conversion, thank you!
 path = "/home/juan/research/hardwaremakers/labs_sp17/angklung/mp3files/" #change to your own path
-fname = path+"low_do_long.mp3" #change to another note as needed
+fname = path+"so_long.mp3" #change to another note as needed
 note = AudioSegment.from_mp3(fname)
 
 ser = serial.Serial('/dev/ttyACM0', 9600) # Establish the connection on a specific port, for windows use COMX with X the port number
