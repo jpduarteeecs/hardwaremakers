@@ -1,67 +1,71 @@
 #Juan Duarte
-#Reference
-#https://www.youtube.com/watch?v=RJB1Ek2Ko_Y&list=PL6gx4Cwl9DGBwibXFtPtflztSNPGuIB_d
-import tkinter as tk
 import time
+import random
+from serial import *
+from tkinter import *
+from PIL import ImageTk, Image #to import images
 
-class SampleApp(tk.Tk):
-    def __init__(self, *args, **kwargs):
-        tk.Tk.__init__(self, *args, **kwargs)
-        self.clock = tk.Label(self, text="")
-        self.clock.pack()
+#serial port set-up
+serialPort = "/dev/ttyACM0"
+baudRate = 9600
+ser = Serial(serialPort , baudRate, timeout=0, writeTimeout=0) #ensure non-blocking
 
-        # start the clock "ticking"
-        self.update_clock()
-
-    def update_clock(self):
-        now = time.strftime("%H:%M:%S" , time.gmtime())
-        self.clock.configure(text=now)
-        # call this function again in one second
-        self.after(1000, self.update_clock)
-
-if __name__== "__main__":
-    app = SampleApp()
-    app.mainloop()
-
-
-'''import tkinter as tk
-from PIL import ImageTk, Image
-
+#card set-up
 home_dir = "/home/juan/research"
-path = home_dir+"/hardwaremakers/labs_sp17/pressuresensor/png/2_of_clubs.png"
-path2 = home_dir+"/hardwaremakers/labs_sp17/pressuresensor/png/3_of_clubs.png"
+path = home_dir+"/hardwaremakers/labs_sp17/pressuresensor/png/"
+
+#make a TkInter Window
+root = Tk()
+root.wm_title("Nervioso Game")
 
 
-root = tk.Tk()
+var = StringVar()
+var.set('hello')
+l = Label(root, textvariable = var)
+l.pack()
 
-img = ImageTk.PhotoImage(Image.open(path))
-panel = tk.Label(root, image = img)
+img = ImageTk.PhotoImage(Image.open(path+"red_joker.png"))
+panel = Label(root, image = img)
 panel.pack(side = "bottom", fill = "both", expand = "yes")
 
-def callback(e):
-    img2 = ImageTk.PhotoImage(Image.open(path2))
-    panel.configure(image = img2)
-    panel.image = img2
+number_of = ["ace_of", "2_of", "3_of", "4_of", "5_of", "6_of", "7_of", "8_of", "9_of", "10_of", "jack_of", "queen_of", "king_of"]
+suite_png = ["_clubs.png", "_hearts.png", "_diamonds.png", "_spades.png"]
+s = ""
 
-root.bind("<Return>", callback)
-root.mainloop()'''
+start=0
+end=0
+time_elapse_card = 1 #1 second
 
-#This creates the main window of an application
-'''window = tk.Tk()
-window.title("Join")
-window.geometry("300x300")
-window.configure(background='grey')
+def readSerial():
+    global start
+    global end
+    while True:
 
-home_dir = "/home/juan/research"
-path = home_dir+"/hardwaremakers/labs_sp17/pressuresensor/png/2_of_clubs.png"
+        c = ser.readline() # attempt to read a character from Serial
 
-#Creates a Tkinter-compatible photo image, which can be used everywhere Tkinter expects an image object.
-img = ImageTk.PhotoImage(Image.open(path))
+        #was anything read?
+        if len(c) == 0:
+            break
+        #else:
+        #    print(c)
 
-#The Label widget is a standard Tkinter widget used to display a text or image on the screen.
-panel = tk.Label(window, image = img)
-#The Pack geometry manager packs widgets in rows or columns.
-panel.pack(side = "bottom", fill = "both", expand = "yes")
+    end = time.time()
+    if (end - start)>time_elapse_card:
+        start = time.time()
+        s = random.choice(number_of)
+        s += random.choice(suite_png)
+        print(s + "\n")
+        # make a scrollbar
+        img2 = ImageTk.PhotoImage(Image.open(path+s))
+        panel.configure(image = img2)
+        panel.image = img2
+        var.set(s)
+        root.update_idletasks()
 
-#Start the GUI
-window.mainloop()'''
+    root.after(10, readSerial) # check serial again soon
+
+
+# after initializing serial, an arduino may need a bit of time to reset
+root.after(100, readSerial)
+
+root.mainloop()
