@@ -120,3 +120,6 @@ void loop()
 ```
 
 ## Multiplayer
+
+
+Feel free to modify the [code for multiplayer ](https://github.com/jpduarteeecs/hardwaremakers/blob/master/labs_sp17/pressuresensor/nervioso_game_multiplayer.py) and are sounds or anything you want. You may have to also want to modify the state machine for the Redbear duo [code](https://github.com/jpduarteeecs/hardwaremakers/blob/master/labs_sp17/pressuresensor/analog_pressure_sensor_game_multi/analog_pressure_sensor_game_multi.ino), to add more features, like more players, or detect if someone make a mistake, etc.
