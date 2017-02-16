@@ -34,6 +34,8 @@ For games, we strongly recommend you to use the game engine [Unity 3D](https://u
 
 The Nervioso game is played by choosing random cards while counting cards in order. If the card that you choose matches the card name that you say, then you need to press your switch as fast as you can. Last player loses. The GUI python code for the Nervioso game can be found [here](https://github.com/jpduarteeecs/hardwaremakers/blob/master/labs_sp17/pressuresensor/nervioso_game.py) (:warning: remember to change serial port name, and folder path to your card images :warning:).
 
+![nervioso](pics/nervioso.png )
+
 We basically need the following features for the GUI:
 
 * A button to start/stop the game: `button_1 = Button(root, textvariable=var_start_stop)`. Every time this button is clicked, it call the function `def printName(event):` to update the button display and to stop the game
@@ -116,3 +118,5 @@ void loop()
   }
 }
 ```
+
+## Multiplayer

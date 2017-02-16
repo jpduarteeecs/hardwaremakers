@@ -82,11 +82,14 @@ def readSerial():
     bytes_from_serial = ser.readline() # attempt to read a character from Serial
     #was anything read?
     if len(bytes_from_serial) > 0:
-        time_response = bytes_from_serial.decode("utf-8")
+        time_response_info = (bytes_from_serial.decode("utf-8"))
+        time_response_info_list = time_response_info.split()
+        player_name = time_response_info_list[0]
+        time_response = time_response_info_list[1]
         print (time_response)
         flag_stop_start = False
         var_start_stop.set("Start")
-        var3.set('Response Time:'+ str(time_response) + " ms")
+        var3.set('Winer: '+player_name+', Time: '+ str(time_response) + " ms")
         root.update_idletasks()
 
     end = time.time()
