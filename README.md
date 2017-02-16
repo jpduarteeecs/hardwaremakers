@@ -8,7 +8,7 @@ Access to small and inexpensive computing hardware, sensors, actuators, and batt
 2. [Hardware Boards](https://github.com/jpduarteeecs/hardwaremakers/blob/master/labs_sp17/angklung/angkulng.md)
 3. [Programing computing hardware](https://github.com/jpduarteeecs/hardwaremakers/blob/master/labs_sp17/statemachine/statemachine.md)
 4. [Switches and Sensors, Part 1](https://github.com/jpduarteeecs/hardwaremakers/blob/master/labs_sp17/pressuresensor/pressure_sensor.md)
-5. [Switches and Sensors, Part 1: GUI Interface](https://github.com/jpduarteeecs/hardwaremakers/blob/master/labs_sp17/pressuresensor/pressure_sensor_gui.md)
+5. [Switches and Sensors, Part 2: GUI Interface](https://github.com/jpduarteeecs/hardwaremakers/blob/master/labs_sp17/pressuresensor/pressure_sensor_gui.md)
 6. Wifi and Bluetooth
 7. Sensors 1
 8. Sensors 2
