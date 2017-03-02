@@ -39,7 +39,7 @@ We want to send data from our hardware to our PCs. There are several ways to cre
 
 Using WiFi technology, available in RedBear Duo and Particle Photon boards, we will connect to a local network. Then, we will create a local server.
 
-Compile and upload the following code to your RedBear Duo board:
+Compile and upload the following [code](https://github.com/jpduarteeecs/hardwaremakers/blob/master/labs_sp17/wifi/example/WiFiServerRedBear/WiFiServerRedBear.ino) to your RedBear Duo board:
 
 
 ```Arduino
@@ -165,7 +165,7 @@ Now you are ready to create a client and connect to this server.
 
 ## Client in Python
 
- There are so many programming languages that can be use to create a server. We are going to use Python this time, but feel free to use whatever you want. A simple reference to code server-client in python can be found [here](http://www.bogotobogo.com/python/python_network_programming_server_client.php). Using this reference, we modified it to create a client that communicate to the server in our Redbear Duo:
+ There are so many programming languages that can be use to create a server. We are going to use Python this time, but feel free to use whatever you want. A simple reference to code server-client in python can be found [here](http://www.bogotobogo.com/python/python_network_programming_server_client.php). Using this reference, we modified it to create a client that communicate to the server in our Redbear Duo (code [here](https://github.com/jpduarteeecs/hardwaremakers/blob/master/labs_sp17/wifi/example/client.py)):
 
  ```Python
  # import socket library
@@ -203,3 +203,8 @@ This is all for today, you can modify your code to measure some sensor and send 
 
 ## Acknowledgment
 The material of today's experience was designed and tested by Juan Duarte, Ram Menon, and Thomas Habib.
+
+## References:
+
+* [SOCKETS - SERVER & CLIENT ](http://www.bogotobogo.com/cplusplus/sockets_server_client.php)
+* [Python Server and Client](http://www.bogotobogo.com/python/python_network_programming_server_client.php)

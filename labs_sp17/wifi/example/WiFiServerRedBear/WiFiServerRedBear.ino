@@ -19,9 +19,9 @@ SYSTEM_MODE(SEMI_AUTOMATIC);
 #endif
 
 // your network name also called SSID
-char ssid[] = "ferret3";//"juanito";
+char ssid[] = "juanito";
 // your network password
-char password[] = "woolseydana";//"holahola";
+char password[] = "holahola";
 
 TCPServer server(23);
 
