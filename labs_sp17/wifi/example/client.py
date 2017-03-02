@@ -16,7 +16,6 @@ while True:
 
     # Receive no more than 1024 bytes
     tm = s.recv(1024)
-    print("The time got from the server is %s" % tm.decode('ascii'))
-
+    print("Data from server is: %s" % tm.decode('ascii'))
 
 s.close()

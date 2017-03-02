@@ -137,3 +137,69 @@ void printWifiStatus() {
   Serial.println(" dBm");
 }
 ```
+There are several parts that you need to understand from the previous code, head, setup, and main loop:
+
+### Head Code
+
+* We defined the name of the network and password using `ssid[]` and `password[]`, respectively
+* A server was created to listen to port 23. `TCPServer` function was used, for details read [this](https://docs.particle.io/reference/firmware/photon/#tcpserver).
+
+### Setup Part
+
+* WiFi was turned on, setup and connected using `WiFi.on()`,`  WiFi.setCredentials(ssid,password)`, and `WiFi.connect()`.
+* Local IP is obtained using `WiFi.localIP()`. This address you need to later connect your client to this server.
+* Server was started using `server.begin()`
+
+### Loop Part
+
+* The code define a client using `TCPClient client = server.available()`
+* `if (client)` checks if a client is connected
+* `while (client.connected())` makes the code to interact with client while it is connected.
+* `client.printf("I am sending data\r");` it prints to the client a string. Note that this can be data from your sensor or any information you want to send to your client.
+
+Open your serial monitor, it should look similar to this (SSID and IP should be different base on your network):
+
+![turnstile](pics/server1.png)
+
+Now you are ready to create a client and connect to this server.
+
+## Client in Python
+
+ There are so many programming languages that can be use to create a server. We are going to use Python this time, but feel free to use whatever you want. A simple reference to code server-client in python can be found [here](http://www.bogotobogo.com/python/python_network_programming_server_client.php). Using this reference, we modified it to create a client that communicate to the server in our Redbear Duo:
+
+ ```Python
+ # import socket library
+ import socket
+
+ # create a socket object
+ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+ # Host is the IP of server to connect, you can check this IP when you start your server connection in your redbear duo
+ host = '192.168.1.146'
+ #Port is the one you defined in your server
+ port = 23
+
+ # connection to hostname on the port.
+ s.connect((host, port))
+
+ while True:
+
+     # Receive no more than 1024 bytes
+     tm = s.recv(1024)
+     print("Data from server is: %s" % tm.decode('ascii'))
+
+ s.close()
+ ```
+
+ Run the previous python code. There are two things you should be able to check. First, the serial monitor of your RedBear Duo should indicate a new client is being connected:
+
+![turnstile](pics/server2.png)
+
+ Second, the console should start to receive data from the server:
+
+ ![turnstile](pics/client1.png)
+
+This is all for today, you can modify your code to measure some sensor and send the data back and do something with that data in your computer. Next class we will create a server in your pc and client in your board, in addition to read some sensor data.
+
+## Acknowledgment
+The material of today's experience was designed and tested by Juan Duarte, Ram Menon, and Thomas Habib.
