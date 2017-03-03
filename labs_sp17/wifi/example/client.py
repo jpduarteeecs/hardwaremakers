@@ -6,7 +6,7 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # get local machine name
 host = socket.gethostname()
-host = '192.168.1.146'
+host = '192.168.2.2'
 port = 23
 
 # connection to hostname on the port.
