@@ -14,7 +14,7 @@ For exampple, a printer can be a server which is connected to a wireless network
 
 ## Creating a Server in Python
 
-There are so many programming languages that can be use to create a server. We are going to use Python this time, but feel free to use whatever you want. A simple reference to code server-client in python can be found [here](http://www.bogotobogo.com/python/python_network_programming_server_client.php). Using this reference, we modified it to create a server that communicate to the client in our Redbear Duo (code [here]()):
+There are so many programming languages that can be use to create a server. We are going to use Python this time, but feel free to use whatever you want. A simple reference to code server-client in python can be found [here](http://www.bogotobogo.com/python/python_network_programming_server_client.php). Using this reference, we modified it to create a server that communicate to the client in our Redbear Duo (code [here](https://github.com/jpduarteeecs/hardwaremakers/blob/master/labs_sp17/wifi/example/server.py)):
 
 ```Python
 import socket
@@ -74,7 +74,7 @@ We want to send data from our hardware to our PCs. There are several ways to cre
 
 Using WiFi technology, available in RedBear Duo and Particle Photon boards, we will connect to a local network. Then, we will create a client that connect to our server.
 
-Compile and upload the following [code]() to your RedBear Duo board:
+Compile and upload the following [code](https://github.com/jpduarteeecs/hardwaremakers/blob/master/labs_sp17/wifi/example/WiFiClientRedBear/WiFiClientRedBear.ino) to your RedBear Duo board:
 
 
 ```Arduino
@@ -211,7 +211,7 @@ There are several parts that you need to understand from the previous code, head
 * It buffer any data comming from server using `client.read((uint8_t*)buffer, client.available());`
 * If connection is lost (`!client.connected()`), client is closed using `client.stop();`
 
-Open your serial monitor and check if your client is able to connect to your server. 
+Open your serial monitor and check if your client is able to connect to your server.
 
 ## Acknowledgment
 The material of today's experience was designed and tested by Juan Duarte.
