@@ -12,6 +12,12 @@ An accelerometer can be implemented by measuring the change in capacitance of a 
 
 It has a mass attached to a spring which is confined to move along one direction and fixed outer plates. So when an acceleration in the particular direction will be applied the mass will move and the capacitance between the plates and the mass will change. This change in capacitance will be measured, processed and it will correspond to a particular acceleration value.
 
+## Soldering and connecting MPU-6050
+
+Please follow the direction given by instructor to solder the pins for your MPU-6050. After finished, connect the sensor using as a reference the following picture:
+
+![diagramsensor](pics/IMG_6779.JPG)
+
 ## RedBear Code for MPU-6050
 
 In order to read data from a sensor, we can use the library file of that sensor; however, in this case we will do everything from scratch, so you can have an idea of how the communication between your board and sensor works.
