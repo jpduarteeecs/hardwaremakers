@@ -11,7 +11,7 @@ Access to small and inexpensive computing hardware, sensors, actuators, and batt
 5. [Switches and Sensors, Part 2: GUI Interface](https://github.com/jpduarteeecs/hardwaremakers/blob/master/labs_sp17/pressuresensor/pressure_sensor_gui.md)
 6. [Wifi 1](https://github.com/jpduarteeecs/hardwaremakers/blob/master/labs_sp17/wifi/wifi.md)
 7. [Wifi 2](https://github.com/jpduarteeecs/hardwaremakers/blob/master/labs_sp17/wifi/wifi2.md)
-8. Sensors 1
+8. [Sensors 1: Accelerometer](https://github.com/jpduarteeecs/hardwaremakers/blob/master/labs_sp17/sensor_accgyro/sensor1.md)
 9. Batteries and Voltage Regulators
 10. Actuators 1
 11. Actuators 2
