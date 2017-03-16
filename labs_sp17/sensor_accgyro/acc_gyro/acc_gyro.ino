@@ -1,5 +1,4 @@
 /* Graph I2C Accelerometer On RedBear Duo over Serial Port
- * Adafruit Part 2809 LIS3DH - http://adafru.it/2809
  * This example shows how to program I2C manually
  * I2C Pins SDA1==D0, SCL1 == D1
  * Default address: 0x18
@@ -9,22 +8,10 @@
 #if defined(ARDUINO)
 SYSTEM_MODE(MANUAL);
 #endif
-// Basic demo for accelerometer readings from Adafruit LIS3DH
-
-//#include <BLE_API.h>
-//#include "Wire.h"
-//#include "I2Cdev.h"
-//#include "MPU6050.h"
-
-
-//BLE ble;
-//Timeout timeout;
-//MPU6050 mpu;
 
 #define TXRX_BUF_LEN 20
 
 static uint8_t tx_buf[TXRX_BUF_LEN];
-
 
 uint8_t tx_value[TXRX_BUF_LEN] = {0,};
 uint8_t rx_value[TXRX_BUF_LEN] = {0,};
@@ -57,21 +44,6 @@ void setup() {
   setup_mpu_6050_registers();                                          //Setup the registers of the MPU-6050 (500dfs / +/-8g) and start the gyro
 
   digitalWrite(13, HIGH);                                              //Set digital output 13 high to indicate startup
-
-   /*                                           //Set the LCD cursor to position to position 0,1
-  for (int cal_int = 0; cal_int < 2000 ; cal_int ++){                  //Run this code 2000 times
-    //if(cal_int % 125 == 0)lcd.print(".");                              //Print a dot on the LCD every 125 readings
-    read_mpu_6050_data();                                              //Read the raw acc and gyro data from the MPU-6050
-    gyro_x_cal += gyro_x;                                              //Add the gyro x-axis offset to the gyro_x_cal variable
-    gyro_y_cal += gyro_y;                                              //Add the gyro y-axis offset to the gyro_y_cal variable
-    gyro_z_cal += gyro_z;                                              //Add the gyro z-axis offset to the gyro_z_cal variable
-    delay(3);                                                          //Delay 3us to simulate the 250Hz program loop
-  }
-  gyro_x_cal /= 2000;                                                  //Divide the gyro_x_cal variable by 2000 to get the avarage offset
-  gyro_y_cal /= 2000;                                                  //Divide the gyro_y_cal variable by 2000 to get the avarage offset
-  gyro_z_cal /= 2000;                                                  //Divide the gyro_z_cal variable by 2000 to get the avarage offset
-
- */
   digitalWrite(13, LOW);                                               //All done, turn the LED off
   
   loop_timer = micros();                                               //Reset the loop timer
@@ -82,9 +54,9 @@ void loop() {
   //gyro_x -= gyro_x_cal;                                                //Subtract the offset calibration value from the raw gyro_x value
   //gyro_y -= gyro_y_cal;                                                //Subtract the offset calibration value from the raw gyro_y value
   //gyro_z -= gyro_z_cal;                                                //Subtract the offset calibration value from the raw gyro_z value
-  auxx=(float)acc_x;///4096;
-  auxy=(float)acc_y;///4096;
-  auxz=(float)acc_z;///4096;
+  auxx=(float)acc_x/4096;
+  auxy=(float)acc_y/4096;
+  auxz=(float)acc_z/4096;
   Serial.print("a/g:\t");
   Serial.print(auxx); Serial.print("\t");
   Serial.print(auxy); Serial.print("\t");
@@ -104,11 +76,8 @@ void read_mpu_6050_data(){                                             //Subrout
   while(Wire.available() < 14); 
   //Wait until all the bytes are received
   acc_x = Wire.read()<<8|Wire.read();                                  //Add the low and high byte to the acc_x variable
-  //Serial.print(acc_x,BIN); Serial.print("\t");
   acc_y = Wire.read()<<8|Wire.read();                                  //Add the low and high byte to the acc_y variable
-  //Serial.print(acc_y,BIN); Serial.print("\t");
   acc_z = Wire.read()<<8|Wire.read();                                  //Add the low and high byte to the acc_z variable
-  //Serial.print(acc_z,BIN); Serial.print("\t");
   temperature = Wire.read()<<8|Wire.read();                            //Add the low and high byte to the temperature variable
   gyro_x = Wire.read()<<8|Wire.read();                                 //Add the low and high byte to the gyro_x variable
   gyro_y = Wire.read()<<8|Wire.read();                                 //Add the low and high byte to the gyro_y variable
@@ -133,5 +102,4 @@ void setup_mpu_6050_registers(){
   Wire.write(0x08);                                                    //Set the requested starting register
   Wire.endTransmission();                                              //End the transmission
 }
-
 
